@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Grid, Typography, Avatar } from '@mui/material';
 import { getAccessTokenFromStorage } from '../../utils/getAccessTokenFromStorage';
+import PlayerControls from '../PlayerControls/PlayerControls';
 
 const Player = ({ spotifyApi }) => {
 	const [localPlayer, setPlayer] = useState(null);
@@ -122,7 +123,12 @@ const Player = ({ spotifyApi }) => {
 						alignItems: 'center'
 					}}
 				>
-					Player controller
+					<PlayerControls
+						progress={progress}
+						is_paused={is_paused}
+						duration={duration}
+						player={localPlayer}
+					/>
 				</Grid>
 			</Grid>
 		</Box>
