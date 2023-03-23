@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Divider } from '@mui/material';
+import NavItem from '../NavItem/NavItem';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
 const SideNav = ({ spotifyApi, token }) => {
 	const [albumList, setAlbumList] = useState(null);
@@ -31,6 +33,7 @@ const SideNav = ({ spotifyApi, token }) => {
 			<Box p={3}>
 				<img src="/Spotify_Logo.png" width={'75%'} alt="Spotify" />
 			</Box>
+			<NavItem name="Home" Icon={HomeRoundedIcon} target="/" active />
 			<Box px={3} py={1}>
 				<Divider sx={{ backgroundColor: '#ffffff40' }} />
 			</Box>
