@@ -4,9 +4,9 @@
 
 ## Vad görs denna milstolpe
 
--   Skapar [NavItem](./src/components/NavItem/NavItem.jsx) komponenten
--   Skapar [NavPlaylist](./src/components/NavPlaylist/NavPlaylist.jsx) komponenten
--   Skapar [SideNav](./src/components/SideNav/SideNav.jsx) komponenten
+-   Skapar [SongRow](./src/components/SongRow/SongRow.jsx) komponenten
+-   Skapar [SongTable](./src/components/SongTable/SongTable.jsx) komponenten
+-   Skapar [SongRow](./src/pages/Playlist.jsx) filen
 
 ## Övergripande
 
