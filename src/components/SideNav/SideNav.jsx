@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Divider } from '@mui/material';
-import NavItem from '../NavItem/NavItem';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import NavItem from '../NavItem/NavItem';
+import NavPlaylist from '../NavPlaylist/NavPlaylist';
 
 const SideNav = ({ spotifyApi, token }) => {
 	const [albumList, setAlbumList] = useState(null);
@@ -10,15 +11,23 @@ const SideNav = ({ spotifyApi, token }) => {
 	useEffect(() => {
 		async function getPlaylists() {
 			if (!spotifyApi) return;
-
 			const data = await spotifyApi.getUserPlaylists();
-			console.log(data);
-
 			setLoading(false);
 			setAlbumList(data.body.items);
 		}
 		getPlaylists();
 	}, [spotifyApi, token]);
+
+	const renderPlaylist = () => {
+		if (loading) {
+			return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, id) => {
+				return <NavPlaylist key={id} loading={loading} />;
+			});
+		}
+		return albumList.map((playlist, id) => {
+			return <NavPlaylist key={id} id={playlist.id} loading={loading} name={playlist.name} />;
+		});
+	};
 
 	return (
 		<Box
@@ -37,7 +46,7 @@ const SideNav = ({ spotifyApi, token }) => {
 			<Box px={3} py={1}>
 				<Divider sx={{ backgroundColor: '#ffffff40' }} />
 			</Box>
-			<Box sx={{ overflowY: 'auto', flex: 1 }}>{/* Playlists here */}</Box>
+			<Box sx={{ overflowY: 'auto', flex: 1 }}>{renderPlaylist()}</Box>
 		</Box>
 	);
 };
