@@ -4,10 +4,9 @@
 
 ## Vad görs denna milstolpe
 
--   Home page
--   Login page
--   Login funktionalitet
--   Simpel dashboard komponent med olika routes
+-   Skapar [NavItem](./src/components/NavItem/NavItem.jsx) komponenten
+-   Skapar [NavPlaylist](./src/components/NavPlaylist/NavPlaylist.jsx) komponenten
+-   Skapar [SideNav](./src/components/SideNav/SideNav.jsx) komponenten
 
 ## Övergripande
 
