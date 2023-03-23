@@ -1,11 +1,11 @@
 import './App.css';
 import { Box } from '@mui/material';
-import Home from './pages/Home.jsx';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App({ spotifyApi }) {
 	return (
 		<Box className="App">
-			<Home />
+			<Dashboard />
 		</Box>
 	);
 }
