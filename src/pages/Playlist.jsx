@@ -4,6 +4,44 @@ import { useParams } from 'react-router-dom';
 
 const Playlist = ({ spotifyApi, token }) => {
 	const [playlistInfo, setPlaylistInfo] = useState();
+	const [songs, setSongs] = useState([]);
+	const [status, setStatus] = useState({ isLoading: false, isError: null });
+	const { id } = useParams();
+
+	const formatSongData = useCallback(
+		(songs) => {
+			return songs.map((song, i) => {
+				const { track } = song;
+				track.contextUri = `spotify:playlist:${id}`;
+				track.position = i;
+				return track;
+			});
+		},
+		[id]
+	);
+
+	useEffect(() => {
+		const getData = async () => {
+			setStatus((prev) => ({ ...prev, isLoading: true }));
+			try {
+				const playlistDetail = await spotifyApi.getPlaylist(id);
+				setPlaylistInfo({
+					image: playlistDetail.body.images[0].url,
+					name: playlistDetail.body.name
+				});
+
+				const { tracks } = playlistDetail.body;
+				const formattedSongs = formatSongData(tracks.items);
+				setSongs(formattedSongs);
+			} catch (error) {
+				setStatus((prev) => ({ ...prev, isError: error }));
+			}
+		};
+
+		getData().finally(() => {
+			setStatus((prev) => ({ ...prev, isLoading: false }));
+		});
+	}, [formatSongData, id, spotifyApi, token]);
 
 	return (
 		<Box id="Playlist__page" sx={{ bgcolor: 'background.paper', flex: 1, overflowY: 'auto' }}>
