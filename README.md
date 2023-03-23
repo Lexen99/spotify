@@ -4,8 +4,12 @@
 
 ## Vad görs denna milstolpe
 
--   Lägger till funktionalitet i [SongRow](./src/components/SongRow/SongRow.jsx) komponenten som låter användare spela en låt
--   Skapar [Player](./src/components/Player/Player.jsx) komponenten
+-   Lägger till funktionalitet till [Player](./src/components/Player/Player.jsx) komponenten
+    -   Hämtar låten som spelas i real tid
+    -   Skippa låtar
+    -   Spola fram och bak i en låt
+    -   Pausa och spela låt
+-   Skapar [PlayerControls](./src/components/PlayerControls/PlayerControls.jsx) komponenten
 
 ## Övergripande
 
