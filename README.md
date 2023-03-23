@@ -4,12 +4,10 @@
 
 ## Vad görs denna milstolpe
 
--   Initiera ett nytt React projekt med **npm create vite**
--   Router Config
--   Material UI Config
--   Skapa ett nytt Spotify projekt
--   Länka spotify credentials
--   Images assets
+-   Home page
+-   Login page
+-   Login funktionalitet
+-   Simpel dashboard komponent med olika routes
 
 ## Övergripande
 
@@ -17,7 +15,7 @@ En responsive Spotify clone skapad med relevanta verktyg (se nedan). Applikation
 
 ### Upplägg
 
-Spotify projektet kommer byggas under flera lektioner som gruppas ihop till 8 **milstolpar**. Varje lektion kommer fokusera på att bygga ut vissa delar av appen medans en **milstolpe** syftar på en grupp av lektioner. För varje lektion finns en motsvarande **commit** som har alla ändringar om du vill jämföra din kod. Du hittar alla **commits** [här](https://github.com/MMR-Solutions-AB/tsm-spotify). Vill du se vad som gjordes en specifik lektion är det bara att tryck på respektive **commit** för den lektionen.
+Spotify projektet kommer byggas under flera lektioner som gruppas ihop till 8 **milstolpar**. Varje lektion kommer fokusera på att bygga ut vissa delar av appen medans en **milstolpe** syftar på en grupp av lektioner. För varje lektion finns en motsvarande **commit** som har alla ändringar om du vill jämföra din kod. Du hittar alla **commits** [här](https://github.com/MMR-Solutions-AB/tsm-spotify/commits/main). Vill du se vad som gjordes en specifik lektion är det bara att tryck på respektive **commit** för den lektionen.
 
 ### Starta Applikationen
 
