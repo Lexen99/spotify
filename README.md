@@ -4,12 +4,9 @@
 
 ## Vad görs denna milstolpe
 
--   Lägger till funktionalitet till [Player](./src/components/Player/Player.jsx) komponenten
-    -   Hämtar låten som spelas i real tid
-    -   Skippa låtar
-    -   Spola fram och bak i en låt
-    -   Pausa och spela låt
--   Skapar [PlayerControls](./src/components/PlayerControls/PlayerControls.jsx) komponenten
+-   Skapar [MobileNav](./src/components/MobileNav/MobileNav.jsx) komponenten
+-   Skapar [PlayerOverlay](./src/components/PlayerOverlay/PlayerOverlay.jsx) komponenten
+-   Skapar [PlayerVolume](./src/components/PlayerVolume/PlayerVolume.jsx) komponenten
 
 ## Övergripande
 
