@@ -4,9 +4,8 @@
 
 ## Vad görs denna milstolpe
 
--   Skapar [SongRow](./src/components/SongRow/SongRow.jsx) komponenten
--   Skapar [SongTable](./src/components/SongTable/SongTable.jsx) komponenten
--   Skapar [SongRow](./src/pages/Playlist.jsx) filen
+-   Lägger till funktionalitet i [SongRow](./src/components/SongRow/SongRow.jsx) komponenten som låter användare spela en låt
+-   Skapar [Player](./src/components/Player/Player.jsx) komponenten
 
 ## Övergripande
 
