@@ -2,11 +2,6 @@
 
 ![alt text](./logo.png)
 
-## Vad görs denna milstolpe
-
--   Skapar [PlaylistItem](./src/components/PlaylistItem/PlaylistItem.jsx) komponenten
--   Skapar [Library](./src/pages/Library.jsx) komponenten
-
 ## Övergripande
 
 En responsive Spotify clone skapad med relevanta verktyg (se nedan). Applikationen består av ca 20 komponenter där vi använder oss utav Spotifys Web Api samt Spotifys SDK för att skapa en Spotify lik upplevelse. I applikationen finns möjlighet att se sina album, spellistor, spela låtar, pausa låtar, spola och justera volym.
