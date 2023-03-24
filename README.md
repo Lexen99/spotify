@@ -4,9 +4,8 @@
 
 ## Vad görs denna milstolpe
 
--   Skapar [MobileNav](./src/components/MobileNav/MobileNav.jsx) komponenten
--   Skapar [PlayerOverlay](./src/components/PlayerOverlay/PlayerOverlay.jsx) komponenten
--   Skapar [PlayerVolume](./src/components/PlayerVolume/PlayerVolume.jsx) komponenten
+-   Skapar [PlaylistItem](./src/components/PlaylistItem/PlaylistItem.jsx) komponenten
+-   Skapar [Library](./src/pages/Library.jsx) komponenten
 
 ## Övergripande
 
