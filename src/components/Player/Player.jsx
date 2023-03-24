@@ -40,7 +40,6 @@ const Player = ({ spotifyApi }) => {
 				if (!state || !state.track_window?.current_track) {
 					return;
 				}
-				console.log(state);
 				const duration_ms = state.track_window.current_track.duration_ms / 1000;
 				const position_ms = state.position / 1000;
 				setDuration(duration_ms);
@@ -78,8 +77,6 @@ const Player = ({ spotifyApi }) => {
 		getDeviceFromApi();
 		transferMyPlayback();
 	}, [device, spotifyApi]);
-
-	console.log({ current_track });
 
 	return (
 		<Box>
