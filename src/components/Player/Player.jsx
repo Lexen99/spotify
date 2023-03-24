@@ -3,6 +3,7 @@ import { Box, Grid, Typography, Avatar } from '@mui/material';
 import { getAccessTokenFromStorage } from '../../utils/getAccessTokenFromStorage';
 import PlayerControls from '../PlayerControls/PlayerControls';
 import PlayerVolume from '../PlayerVolume/PlayerVolume';
+import PlayerOverlay from '../PlayerOverlay/PlayerOverlay';
 
 const Player = ({ spotifyApi }) => {
 	const [localPlayer, setPlayer] = useState(null);
@@ -11,6 +12,7 @@ const Player = ({ spotifyApi }) => {
 	const [device, setDevice] = useState(null);
 	const [duration, setDuration] = useState(null);
 	const [progress, setProgress] = useState(null);
+	const [playerOverlayIsOpen, setPlayerOverlayIsOpen] = useState(false);
 
 	useEffect(() => {
 		const token = getAccessTokenFromStorage();
@@ -84,6 +86,9 @@ const Player = ({ spotifyApi }) => {
 			<Grid
 				container
 				px={3}
+				onClick={() => {
+					setPlayerOverlayIsOpen((open) => !open);
+				}}
 				sx={{
 					bgcolor: 'background.paper',
 					height: 100,
@@ -133,6 +138,15 @@ const Player = ({ spotifyApi }) => {
 				</Grid>
 				<PlayerVolume player={localPlayer} />
 			</Grid>
+			<PlayerOverlay
+				progress={progress}
+				is_paused={is_paused}
+				duration={duration}
+				player={localPlayer}
+				playerOverlayIsOpen={playerOverlayIsOpen}
+				closeOverlay={() => setPlayerOverlayIsOpen(false)}
+				current_track={current_track}
+			/>
 		</Box>
 	);
 };
