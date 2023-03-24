@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Grid, Typography, Avatar } from '@mui/material';
 import { getAccessTokenFromStorage } from '../../utils/getAccessTokenFromStorage';
 import PlayerControls from '../PlayerControls/PlayerControls';
+import PlayerVolume from '../PlayerVolume/PlayerVolume';
 
 const Player = ({ spotifyApi }) => {
 	const [localPlayer, setPlayer] = useState(null);
@@ -84,7 +85,7 @@ const Player = ({ spotifyApi }) => {
 				container
 				px={3}
 				sx={{
-					bgcolor: 'Background.paper',
+					bgcolor: 'background.paper',
 					height: 100,
 					cursor: { xs: 'pointer', md: 'auto' },
 					width: '100%',
@@ -130,6 +131,7 @@ const Player = ({ spotifyApi }) => {
 						player={localPlayer}
 					/>
 				</Grid>
+				<PlayerVolume player={localPlayer} />
 			</Grid>
 		</Box>
 	);
