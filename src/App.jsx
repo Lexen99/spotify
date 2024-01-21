@@ -1,10 +1,13 @@
 import './App.css';
+import { Box } from '@mui/material';
+import Login from './pages/Login';
+import Home from './pages/Home'
 
-function App() {
+function App({ spotifyApi }) {
 	return (
-		<div className="App">
-			<h1>Techover Self Made - Spotify</h1>
-		</div>
+		<Box className="App">
+			<Home />
+		</Box>
 	);
 }
 
