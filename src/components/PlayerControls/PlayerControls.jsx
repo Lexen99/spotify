@@ -1,13 +1,25 @@
 import { Stack, Typography, Slider, Box, IconButton, Slide } from '@mui/material';
 import { formatTime } from '../../utils/formatTime';
 import { PlayArrow, SkipNext, SkipPrevious, Pause } from '@mui/icons-material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const PlayerControls = ({ progress, is_paused, duration, player }) => {
 	const [currentProgress, setCurrentProgress] = useState(progress);
-
 	const skipStyle = { width: 28, height: 28 };
 	const playStyle = { width: 38, height: 38 };
+
+	useEffect(() => {
+		const itervalId = setInterval(() => {
+			if (!is_paused && player) {
+				setCurrentProgress((prevState) => prevState + 1);
+			}
+		}, 1000);
+		return () => clearInterval(itervalId);
+	}, [is_paused, player]);
+
+	useEffect(() => {
+		setCurrentProgress(progress);
+	}, [progress]);
 
 	return (
 		<Stack direction={'column'} spacing={2} justify="center" alignItems="center" sx={{ width: '100%' }}>
@@ -22,9 +34,13 @@ const PlayerControls = ({ progress, is_paused, duration, player }) => {
 				>
 					<SkipPrevious sx={skipStyle} />
 				</IconButton>
-				<IconButton size="small" sx={{ color: 'text.primary' }} onClick={() => {
-					player.togglePlay();
-				}}>
+				<IconButton
+					size="small"
+					sx={{ color: 'text.primary' }}
+					onClick={() => {
+						player.togglePlay();
+					}}
+				>
 					{is_paused ? <PlayArrow sx={playStyle} /> : <Pause sx={playStyle} />}
 				</IconButton>
 				<IconButton
@@ -40,7 +56,19 @@ const PlayerControls = ({ progress, is_paused, duration, player }) => {
 			</Stack>
 			<Stack spacing={2} direction="row" justifyContent={'center'} alignItems={'center'} sx={{ width: '75%' }}>
 				<Typography sx={{ color: 'text.secondary', fontSize: 12 }}>{formatTime(currentProgress)}</Typography>
-				<Slider max={duration} value={currentProgress} min={0} size="medium" />
+				<Slider
+					max={duration}
+					value={currentProgress}
+					min={0}
+					size="medium"
+					onChange={(event, value) => {
+						console.log('changed', value);
+						setCurrentProgress(value);
+					}}
+					onChangeCommitted={(event, value) => {
+						player.seek(value * 1000);
+					}}
+				/>
 				<Typography sx={{ color: 'text.secondary', fontSize: 12 }}>{formatTime(duration)}</Typography>
 			</Stack>
 		</Stack>
